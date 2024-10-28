@@ -1,0 +1,6 @@
+@AdventurePlannerBE_HostAddress = http://localhost:5020
+
+GET {{AdventurePlannerBE_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

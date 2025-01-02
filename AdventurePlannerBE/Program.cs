@@ -1,4 +1,5 @@
 using AdventurePlannerBE.DB;
+using AdventurePlannerBE.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<PlannerContext>(options =>
     //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultDbConnection"));
 });
+builder.Services.Bootstrat();
 
 var app = builder.Build();
 

@@ -8,5 +8,6 @@ namespace AdventurePlannerBE.DB
         public PlannerContext(DbContextOptions<PlannerContext> options): base(options) { }
 
         public DbSet<Trip> Trips { get; set; }
+         public DbSet<Activity> Activities { get; set; }
     }
 }

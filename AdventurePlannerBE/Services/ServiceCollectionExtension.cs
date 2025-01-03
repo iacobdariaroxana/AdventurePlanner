@@ -1,4 +1,5 @@
 ﻿using AdventurePlannerBE.DB;
+using AdventurePlannerBE.Services.Activity;
 using AdventurePlannerBE.Services.Trip;
 
 namespace AdventurePlannerBE.Services
@@ -9,6 +10,7 @@ namespace AdventurePlannerBE.Services
         {
             self.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             self.AddScoped<ITripService, TripService>();
+            self.AddScoped<IActivityService, ActivityService>();
             return self;
         }
     }

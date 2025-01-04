@@ -1,11 +1,12 @@
 ﻿using AdventurePlannerBE.Services.Trip;
 using AdventurePlannerBE.ViewModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdventurePlannerBE.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class TripController : ControllerBase
     {
@@ -72,7 +73,7 @@ namespace AdventurePlannerBE.Controllers
                     return NotFound();
                 }
 
-                return NoContent();
+                return StatusCode(204, "Trip deleted successfully");
             }
             catch (Exception ex)
             {

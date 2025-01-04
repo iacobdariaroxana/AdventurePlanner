@@ -18,7 +18,36 @@ builder.Services.AddDbContext<PlannerContext>(options =>
 });
 builder.Services.Bootstrat();
 
+
+// Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
+// Enable CORS middleware
+app.UseCors("AllowAngularApp");
+
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.StatusCode = 204;
+        await context.Response.CompleteAsync();
+    }
+    else
+    {
+        await next();
+    }
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

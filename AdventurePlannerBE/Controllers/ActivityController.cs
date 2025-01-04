@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AdventurePlannerBE.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ActivityController : ControllerBase
     {

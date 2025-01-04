@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./assets/colors";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $background-color;
+  color: $main-color;
+  font-family: "Proxima Nova", sans-serif;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+  background-color: $paragraph-color;
+}
+
+button {
+  color: $button-text-color !important;
+}

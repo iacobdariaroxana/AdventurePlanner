@@ -1,0 +1,125 @@
+
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+
+// Include the common styles for Angular Material.
+@include mat-core();
+
+@import '@angular/material/theming';
+
+
+// Include the common styles for Angular Material.
+@include mat-core();
+
+// Custom Primary Palette
+$custom-primary-palette: mat.define-palette((
+  50: #004643, // lightest shade
+  100: #005e60,
+  200: #007276,
+  300: #00888c,
+  400: #009fa2,
+  500: #004643, // base color
+  600: #003636,
+  700: #00262a, // darker shade
+  800: #001a1f,
+  900: #000e13, // darkest shade
+  A100: #006f71,
+  A200: #009688,
+  A400: #00b2b1,
+  A700: #008380,
+  contrast: (
+    50: #001e1d,
+    100: #001e1d,
+    200: #001e1d,
+    300: #001e1d,
+    400: #001e1d,
+    500: #fffffe,
+    600: #fffffe,
+    700: #fffffe,
+    800: #fffffe,
+    900: #fffffe,
+    A100: #001e1d,
+    A200: #fffffe,
+    A400: #fffffe,
+    A700: #fffffe,
+  ),
+));
+
+// Custom Accent Palette
+$custom-accent-palette: mat.define-palette((
+  50: #e16162, // lightest shade
+  100: #e57475,
+  200: #e98787,
+  300: #e99a9a,
+  400: #f1a6a7,
+  500: #e16162, // base color
+  600: #d25c5c,
+  700: #b84f4f, // darker shade
+  800: #9e4343,
+  900: #8c3737, // darkest shade
+  A100: #ff80ab,
+  A200: #ff4081,
+  A400: #f50057,
+  A700: #c51162,
+  contrast: (
+    50: #001e1d,
+    100: #001e1d,
+    200: #001e1d,
+    300: #001e1d,
+    400: #001e1d,
+    500: #fffffe,
+    600: #fffffe,
+    700: #fffffe,
+    800: #fffffe,
+    900: #fffffe,
+    A100: #001e1d,
+    A200: #fffffe,
+    A400: #fffffe,
+    A700: #fffffe,
+  ),
+));
+
+$custom-warn-palette: mat.define-palette((
+  50: #fff3e0, // lightest shade
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #f9bc60, // base color
+  600: #f8b42e,
+  700: #f57c00, // darker shade
+  800: #e65100,
+  900: #bf360c, // darkest shade
+  A100: #ffd180,
+  A200: #ffab40,
+  A400: #ff9100,
+  A700: #ff6d00,
+  contrast: (
+    50: #001e1d,
+    100: #001e1d,
+    200: #001e1d,
+    300: #001e1d,
+    400: #001e1d,
+    500: #fffffe,
+    600: #fffffe,
+    700: #fffffe,
+    800: #fffffe,
+    900: #fffffe,
+    A100: #001e1d,
+    A200: #fffffe,
+    A400: #fffffe,
+    A700: #fffffe,
+  ),
+));
+
+// Create the theme object (light theme).
+$custom-theme: mat-light-theme((
+  color: (
+    primary: $custom-primary-palette,
+    accent: $custom-accent-palette,
+	warn: $custom-warn-palette
+  ),
+  typography: mat-typography-config(),
+));
+// Include the Angular Material styles with the custom theme.
+@include angular-material-theme($custom-theme);

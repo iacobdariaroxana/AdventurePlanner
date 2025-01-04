@@ -1,0 +1,21 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="logo-container">
+      <mat-icon>flight_takeoff</mat-icon>
+      <a routerLink="/"> AdventurePlanner</a>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a routerLink="/aboutus" routerLinkActive="active-link">About Us</a>
+      </li>
+    </ul>
+  </nav>
+</header>

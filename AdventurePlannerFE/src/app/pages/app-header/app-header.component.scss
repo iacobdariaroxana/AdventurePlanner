@@ -1,0 +1,53 @@
+@import "../../../assets/colors.scss";
+
+.header {
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: $background-color;
+}
+
+.logo-container a {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  color: $background-color;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+
+  a:hover {
+    color: $main-color;
+  }
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: $background-color;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.nav-links a.active-link {
+  color: $highlight-color;
+}

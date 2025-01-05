@@ -1,0 +1,13 @@
+@import "../../../../assets/colors.scss";
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+::ng-deep .mat-mdc-dialog-container {
+  --mdc-dialog-container-color: #e8e4e6;
+}

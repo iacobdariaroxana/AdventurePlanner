@@ -1,9 +1,11 @@
 @import "./assets/colors";
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   background-color: $background-color;
   color: $main-color;
   font-family: "Proxima Nova", sans-serif;
@@ -17,4 +19,8 @@ header {
 
 button {
   color: $button-text-color !important;
+}
+
+.input {
+  width: 270px;
 }

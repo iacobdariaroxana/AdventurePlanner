@@ -11,6 +11,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TripPopUpComponent } from './pages/home-page/trip-pop-up/trip-pop-up.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 export function appConfigFactory(appConfigService: AppConfigService) {
   return () => appConfigService.loadConfig();
@@ -22,6 +29,7 @@ export function appConfigFactory(appConfigService: AppConfigService) {
     HomePageComponent,
     AppHeaderComponent,
     AboutUsPageComponent,
+    TripPopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +39,13 @@ export function appConfigFactory(appConfigService: AppConfigService) {
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     AppConfigService,

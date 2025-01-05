@@ -1,0 +1,81 @@
+<h2 mat-dialog-title>Trip Details</h2>
+<mat-dialog-content>
+  <form
+    [formGroup]="newTripForm"
+    (ngSubmit)="onSubmit()"
+    class="form-container"
+  >
+    <mat-form-field class="input">
+      <mat-label>Name</mat-label>
+      <input
+        id="tripName"
+        matInput
+        placeholder="Trip name"
+        formControlName="name"
+        name="name"
+        required
+        minlength="3"
+        maxlength="50"
+      />
+      <mat-error *ngIf="newTripForm.get('name')?.hasError('required')"
+        >Name is required!</mat-error
+      >
+      <mat-error *ngIf="newTripForm.get('name')?.hasError('minlength')"
+        >Name should have at least 3 characters!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input
+          matStartDate
+          placeholder="Start date"
+          formControlName="startDate"
+        />
+        <input matEndDate placeholder="End date" formControlName="endDate" />
+      </mat-date-range-input>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>Number of Persons</mat-label>
+      <input
+        min="0"
+        matInput
+        type="number"
+        formControlName="numberOfPersons"
+        name="numPersons"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>Estimated Budget</mat-label>
+      <input
+        min="0"
+        matInput
+        type="number"
+        formControlName="estimatedBudget"
+        name="budget"
+        required
+      />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button
+    mat-flat-button
+    color="accent"
+    [disabled]="newTripForm.invalid"
+    (click)="onSubmit()"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TripViewModel } from '../../models/trip-view-model';
 import {
-  AsyncValidatorFn,
-  FormBuilder,
   FormControl,
   FormGroup,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { TripService } from 'src/app/services/trip/trip.service';

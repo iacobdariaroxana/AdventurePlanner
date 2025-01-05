@@ -20,6 +20,28 @@ namespace AdventurePlannerBE.Controllers
         }
 
         /// <summary>
+        /// Returns a list with all trips.
+        /// </summary>
+        /// <response code="200">Returns the trips</response>
+        /// <response code="500">Internal server error</response>  
+        // GET: api/Trips
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<IEnumerable<TripDTO>> Get()
+        {
+            try
+            {
+                return Ok(_tripService.GetAll());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        /// <summary>
         /// Creates a new trip.
         /// </summary>
         /// <param name="dto"></param>

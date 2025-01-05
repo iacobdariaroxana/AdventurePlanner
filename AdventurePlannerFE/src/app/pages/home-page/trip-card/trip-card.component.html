@@ -1,0 +1,18 @@
+<mat-card class="trip-card">
+  <mat-card-header>
+    <mat-card-title>{{ trip.name }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ trip.startDate | date : "yyyy-MM-dd" }} -
+      {{ trip.endDate | date : "yyyy-MM-dd" }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p class="trip-detail"><mat-icon>people</mat-icon> {{ trip.numberOfPersons }}</p>
+    <p class="trip-detail"><mat-icon>money</mat-icon>{{ trip.estimatedBudget }} €</p>
+  </mat-card-content>
+
+  <mat-card-actions class="actions">
+    <button mat-flat-button color="accent">View</button>
+  </mat-card-actions>
+</mat-card>

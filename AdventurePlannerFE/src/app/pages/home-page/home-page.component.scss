@@ -17,7 +17,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // position: fixed;
 }
 
 .image-half img {
@@ -31,6 +30,17 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+}
+
+.trips-container {
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-around;
+  // gap: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }

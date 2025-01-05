@@ -6,5 +6,8 @@
     <button mat-flat-button color="accent" (click)="openNewTripPopUp()">
       Add new trip
     </button>
+    <div class="trips-container">
+      <app-trip-card *ngFor="let trip of trips" [trip]="trip"> </app-trip-card>
+    </div>
   </div>
 </div>

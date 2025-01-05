@@ -18,6 +18,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import { TripCardComponent } from './pages/home-page/trip-card/trip-card.component';
 
 export function appConfigFactory(appConfigService: AppConfigService) {
   return () => appConfigService.loadConfig();
@@ -30,6 +32,7 @@ export function appConfigFactory(appConfigService: AppConfigService) {
     AppHeaderComponent,
     AboutUsPageComponent,
     TripPopUpComponent,
+    TripCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ export function appConfigFactory(appConfigService: AppConfigService) {
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule
   ],
   providers: [
     AppConfigService,

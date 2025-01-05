@@ -4,7 +4,7 @@ using AdventurePlannerBE.Models;
 
 namespace AdventurePlannerBE.Services.Trip
 {
-    public class TripService: ITripService
+    public class TripService : ITripService
     {
         public IRepositoryWrapper Repository { get; }
 
@@ -44,6 +44,11 @@ namespace AdventurePlannerBE.Services.Trip
             Repository.Save();
 
             return new TripDTO().MapData(trip);
+        }
+
+        public IEnumerable<TripDTO> GetAll()
+        {
+            return Repository.Trips.FindAll().Select(trip => new TripDTO().MapData(trip));
         }
     }
 }

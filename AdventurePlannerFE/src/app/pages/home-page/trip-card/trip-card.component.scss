@@ -1,0 +1,33 @@
+@import '../../../../assets/colors.scss';
+
+.trip-card {
+//   margin: 10px;
+//   padding: 15px;
+  background-color: $main-color;
+  color: $button-text-color;
+  border-radius: 8px;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  mat-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  mat-card-subtitle {
+    color: gray;
+  }
+
+  mat-card-content {
+    font-size: 1em;
+  }
+
+  .trip-detail {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+  }
+
+  .actions {
+	align-self: center;
+  }
+}

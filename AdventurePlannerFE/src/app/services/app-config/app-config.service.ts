@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 
 export interface AppConfig {
   apiUrl: string;
+  googleApiUrl: string;
 }
 
 @Injectable({

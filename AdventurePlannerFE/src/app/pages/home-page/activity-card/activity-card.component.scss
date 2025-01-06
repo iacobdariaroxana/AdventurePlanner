@@ -1,0 +1,35 @@
+@import '../../../../assets/colors.scss';
+
+.activity-card {
+  background-color: $main-color;
+  color: $button-text-color;
+  border-radius: 8px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  mat-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  mat-card-subtitle {
+    color: gray;
+  }
+
+  mat-card-content {
+    font-size: 1em;
+  }
+
+  .activity-detail {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+  }
+
+  .actions {
+	align-self: center;
+	gap: 10px;
+  }
+}

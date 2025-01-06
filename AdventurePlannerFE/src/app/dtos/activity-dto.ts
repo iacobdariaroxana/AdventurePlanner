@@ -4,4 +4,5 @@ export class ActivityDto {
 	location = '';
 	date = '';
 	price = 0;
+	tripId = '';
 }

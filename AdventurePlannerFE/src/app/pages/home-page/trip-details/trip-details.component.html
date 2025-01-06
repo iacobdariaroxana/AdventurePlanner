@@ -1,1 +1,31 @@
-<p>trip-details works!</p>
+<div class="trip-page-container">
+  <div class="trip-header">
+    <h1>{{ detailedTrip?.name }}</h1>
+    <p>
+      {{ detailedTrip?.startDate | date : "yyyy-MM-dd" }} -
+      {{ detailedTrip?.endDate | date : "yyyy-MM-dd" }}
+    </p>
+    <div class="trip-details">
+      <span
+        ><mat-icon>people</mat-icon>
+        {{ detailedTrip?.numberOfPersons }} People</span
+      >
+      <span
+        ><mat-icon>attach_money</mat-icon> Budget: $
+        {{ detailedTrip?.estimatedBudget }}</span
+      >
+    </div>
+  </div>
+
+  <!-- Activities Section -->
+  <div class="activities-section">
+    <h2>Planned Activities</h2>
+    <div class="planned-activities-container">
+      <app-activity-card
+        *ngFor="let activity of detailedTrip?.activities"
+        [activity]="activity"
+      >
+      </app-activity-card>
+    </div>
+  </div>
+</div>

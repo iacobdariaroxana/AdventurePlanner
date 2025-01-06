@@ -1,3 +1,4 @@
 {
-    "apiUrl": "http://localhost:5020/"
+    "apiUrl": "http://localhost:5020/",
+    "googleApiUrl": "https://places.googleapis.com/v1/places"
 }

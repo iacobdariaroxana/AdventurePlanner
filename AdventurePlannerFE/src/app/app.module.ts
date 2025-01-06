@@ -22,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { TripCardComponent } from './pages/home-page/trip-card/trip-card.component';
 import { AppFooterComponent } from './pages/app-footer/app-footer.component';
 import { TripDetailsComponent } from './pages/home-page/trip-details/trip-details.component';
+import { ActivityCardComponent } from './pages/home-page/activity-card/activity-card.component';
 
 export function appConfigFactory(appConfigService: AppConfigService) {
   return () => appConfigService.loadConfig();
@@ -37,6 +38,7 @@ export function appConfigFactory(appConfigService: AppConfigService) {
     TripCardComponent,
     AppFooterComponent,
     TripDetailsComponent,
+    ActivityCardComponent,
   ],
   imports: [
     BrowserModule,

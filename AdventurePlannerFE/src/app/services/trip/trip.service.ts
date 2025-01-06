@@ -5,6 +5,8 @@ import { AppConfigService } from '../app-config/app-config.service';
 import { TripDto } from 'src/app/dtos/trip-dto';
 import { TripModelAdapterService } from './trip-model-adapter.service';
 import { TripViewModel } from 'src/app/pages/models/trip-view-model';
+import { DetailedTripDto } from 'src/app/dtos/detailed-trip-dto';
+import { DetailedTripViewModel } from 'src/app/pages/models/detailed-trip-view-model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +23,16 @@ export class TripService {
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((subs) => subs.unsubscribe());
+  }
+
+  getById(id: string): Observable<DetailedTripViewModel> {
+    const url = this.appConfig.Configuration?.apiUrl + this.serviceName + '/' + id;
+
+    return this.http.get<DetailedTripDto>(url).pipe(
+      map((value) => {
+        return this.adapter.adaptDetailedViewModel(value);
+      })
+    );
   }
 
   getTrips(): Observable<TripViewModel[]> {

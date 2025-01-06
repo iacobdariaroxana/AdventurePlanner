@@ -20,6 +20,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { TripCardComponent } from './pages/home-page/trip-card/trip-card.component';
+import { AppFooterComponent } from './pages/app-footer/app-footer.component';
 
 export function appConfigFactory(appConfigService: AppConfigService) {
   return () => appConfigService.loadConfig();
@@ -33,6 +34,7 @@ export function appConfigFactory(appConfigService: AppConfigService) {
     AboutUsPageComponent,
     TripPopUpComponent,
     TripCardComponent,
+    AppFooterComponent,
   ],
   imports: [
     BrowserModule,

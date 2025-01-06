@@ -1,21 +1,16 @@
 @import "../../../assets/colors.scss";
 
 .footer {
-  background-color: $background-color; /* Culoare fundal */
-  color: $paragraph-color; /* Culoare text */
-//   padding: 10px 10px; /* Padding sus, dreapta, jos, stânga */
-  text-align: center; /* Aliniere text centru */
-  border-top: 2px solid $highlight-color; /* Linia subtire roz care delimitează footer-ul */
+  background-color: $background-color;
+  color: $paragraph-color;
+  text-align: center;
+  border-top: 2px solid $highlight-color;
   display: flex;
-  justify-content: space-between; /* Creăm două coloane */
-  align-items: center; /* Aliniere pe verticală a conținutului */
-//   flex-wrap: wrap; /* Permitem să se adapteze pe mobil */
-  width: 100%; /* Asigură că footer-ul ocupă toată lățimea */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   position: relative;
-   /* Permite footer-ului să se comporte normal în fluxul paginii */
-//   box-sizing: border-box; /* Se asigură că padding-ul și marginile sunt incluse în dimensiuni */
   height: 40px;
-  /* Prevenirea scroll-ului pe orizontală */
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -25,7 +20,7 @@
   flex: 1;
   text-align: left;
   padding: 5px;
-  word-wrap: break-word; /* Împărțirea cuvintelor pe mai multe linii pentru a evita overflow-ul */
+  word-wrap: break-word;
 }
 
 .footer-right {
@@ -35,11 +30,11 @@
 }
 
 .footer a {
-  color: $paragraph-color; /* Culoare link */
+  color: $paragraph-color;
   text-decoration: none;
   margin: 0 10px;
 }
 
 .footer a:hover {
-  text-decoration: underline; /* Sublinează la hover */
+  text-decoration: underline;
 }

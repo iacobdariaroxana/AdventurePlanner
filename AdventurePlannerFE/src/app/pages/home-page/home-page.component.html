@@ -1,13 +1,9 @@
-<div class="container">
-  <div class="image-half">
-    <img src="assets/images/balloons.png" alt="Your Image" />
-  </div>
-  <div class="content-half">
-    <button mat-flat-button color="accent" (click)="openNewTripPopUp()">
-      Add new trip
+<section id="home">
+  <div class="trips-container">
+    <app-trip-card *ngFor="let trip of trips" [trip]="trip"> </app-trip-card>
+    <div class="container-button"> <button class="add-button" mat-fab color="accent" (click)="openNewTripPopUp()">
+      <mat-icon>add</mat-icon>
     </button>
-    <div class="trips-container">
-      <app-trip-card *ngFor="let trip of trips" [trip]="trip"> </app-trip-card>
-    </div>
   </div>
-</div>
+  </div>
+</section>

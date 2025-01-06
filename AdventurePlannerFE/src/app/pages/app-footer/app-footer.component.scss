@@ -1,31 +1,23 @@
 @import "../../../assets/colors.scss";
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 .footer {
   background-color: $background-color; /* Culoare fundal */
   color: $paragraph-color; /* Culoare text */
-  padding: 20px 20px 10px 20px; /* Padding sus, dreapta, jos, stânga */
+//   padding: 10px 10px; /* Padding sus, dreapta, jos, stânga */
   text-align: center; /* Aliniere text centru */
   border-top: 2px solid $highlight-color; /* Linia subtire roz care delimitează footer-ul */
   display: flex;
   justify-content: space-between; /* Creăm două coloane */
   align-items: center; /* Aliniere pe verticală a conținutului */
-  flex-wrap: wrap; /* Permitem să se adapteze pe mobil */
+//   flex-wrap: wrap; /* Permitem să se adapteze pe mobil */
   width: 100%; /* Asigură că footer-ul ocupă toată lățimea */
-  position: relative; /* Permite footer-ului să se comporte normal în fluxul paginii */
-  padding-top: 20px;
-  padding-bottom: 10px;
-  box-sizing: border-box; /* Se asigură că padding-ul și marginile sunt incluse în dimensiuni */
-  
+  position: relative;
+   /* Permite footer-ului să se comporte normal în fluxul paginii */
+//   box-sizing: border-box; /* Se asigură că padding-ul și marginile sunt incluse în dimensiuni */
+  height: 40px;
   /* Prevenirea scroll-ului pe orizontală */
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .footer-left,

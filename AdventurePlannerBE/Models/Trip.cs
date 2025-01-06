@@ -22,5 +22,7 @@ namespace AdventurePlannerBE.Models
 
         [Range(0, int.MaxValue)]
         public int EstimatedBudget { get; set; }
+
+        public ICollection<Activity> Activities { get; set; }
     }
 }

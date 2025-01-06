@@ -21,5 +21,8 @@ namespace AdventurePlannerBE.Models
 
         [Range(0, int.MaxValue)]
         public int Price { get; set; }
+
+        [ForeignKey("Trips")]
+        public Guid TripId { get; set; }
     }
 }

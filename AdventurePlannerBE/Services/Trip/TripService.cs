@@ -1,6 +1,7 @@
 ﻿using AdventurePlannerBE.DB;
 using AdventurePlannerBE.ViewModels;
 using AdventurePlannerBE.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdventurePlannerBE.Services.Trip
 {
@@ -49,6 +50,18 @@ namespace AdventurePlannerBE.Services.Trip
         public IEnumerable<TripDTO> GetAll()
         {
             return Repository.Trips.FindAll().Select(trip => new TripDTO().MapData(trip));
+        }
+
+        public DetailedTripDTO GetById(Guid id)
+        {
+            var trip = Repository.Trips.FindByCondition(trip => trip.Id == id).Include(t => t.Activities).FirstOrDefault();
+
+            if (trip == null)
+            {
+                return null;
+            }
+
+            return new DetailedTripDTO().MapData(trip);
         }
     }
 }

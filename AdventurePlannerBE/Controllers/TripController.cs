@@ -20,6 +20,36 @@ namespace AdventurePlannerBE.Controllers
         }
 
         /// <summary>
+        /// Returns the requested trip.
+        /// </summary>
+        /// <response code="200">Returns the trip</response>
+        /// <response code="404">Trip not found</response>
+        /// <response code="500">Internal server error</response>  
+        // GET: api/Trips
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<TripDTO> Get(Guid id)
+        {
+            try
+            {
+                var trip = _tripService.GetById(id);
+
+                if (trip == null)
+                {
+                    return NotFound();
+                }
+                return Ok(trip);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        /// <summary>
         /// Returns a list with all trips.
         /// </summary>
         /// <response code="200">Returns the trips</response>
@@ -28,7 +58,7 @@ namespace AdventurePlannerBE.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<IEnumerable<TripDTO>> Get()
+        public ActionResult<IEnumerable<TripDTO>> GetAll()
         {
             try
             {

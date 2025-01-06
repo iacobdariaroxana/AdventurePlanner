@@ -21,6 +21,7 @@ namespace AdventurePlannerBE.Services.Activity
                 Date = dto.Date,
                 Location = dto.Location,
                 Price = dto.Price,
+                TripId = dto.TripId,
             };
 
             Repository.Activities.Create(activity);

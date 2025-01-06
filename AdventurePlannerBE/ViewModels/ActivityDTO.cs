@@ -11,14 +11,16 @@ namespace AdventurePlannerBE.ViewModels
 
         public DateOnly Date { get; set; }
         public int Price { get; set; }
+        public Guid TripId { get; set; }
 
-         public ActivityDTO MapData(Activity activity)
+        public ActivityDTO MapData(Activity activity)
         {
             Id = activity.Id;
             Name = activity.Name;
             Date = activity.Date;
             Location = activity.Location;
             Price = activity.Price;
+            TripId = activity.TripId;
 
             return this;
         }

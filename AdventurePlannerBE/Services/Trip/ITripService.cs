@@ -7,6 +7,7 @@ namespace AdventurePlannerBE.Services.Trip
     {
         IRepositoryWrapper Repository { get; }
 
+        DetailedTripDTO GetById(Guid id);
         IEnumerable<TripDTO> GetAll();
         TripDTO Create(TripDTO dto);
         TripDTO? Delete(Guid id);

@@ -20,7 +20,6 @@ namespace AdventurePlannerBE.Services.Activity
                 Name = dto.Name,
                 Date = dto.Date,
                 Location = dto.Location,
-                Price = dto.Price,
                 TripId = dto.TripId,
             };
 

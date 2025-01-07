@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TripService } from 'src/app/services/trip/trip.service';
-import { TripViewModel } from '../../models/trip-view-model';
 import { GoogleApiService } from 'src/app/services/google-api/google-api.service';
 import { DetailedTripViewModel } from '../../models/detailed-trip-view-model';
+import { Filters } from '../activity-filters/filters';
 
 @Component({
   selector: 'app-trip-details',
@@ -32,15 +32,21 @@ export class TripDetailsComponent {
         },
       });
     });
+  }
 
-    // this._googleApiService.getActivities(      {
-    //   textQuery: 'museums in France',
-    //   priceLevels: ['PRICE_LEVEL_VERY_EXPENSIVE'],
-    // }).subscribe({
-    //   next: (result) => {
-    //     console.log(result)
-    //   },
-    //   error: (err) => console.log(err)
-    // })
+  onFiltersChanged(filters: Filters) {
+    let query = `${filters.activityType} in ${this.detailedTrip?.name}`;
+    console.log(query)
+    this._googleApiService
+      .getActivities({
+        textQuery: query,
+        minRating: filters.rating,
+      })
+      .subscribe({
+        next: (result) => {
+          console.log(result);
+        },
+        error: (err) => console.log(err),
+      });
   }
 }

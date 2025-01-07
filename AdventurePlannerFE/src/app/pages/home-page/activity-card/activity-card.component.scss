@@ -1,6 +1,10 @@
-@import '../../../../assets/colors.scss';
+@import "../../../../assets/colors.scss";
 
 .activity-card {
+  mat-icon {
+    color: $button-text-color;
+  }
+
   background-color: $main-color;
   color: $button-text-color;
   border-radius: 8px;
@@ -12,6 +16,19 @@
   mat-card-title {
     font-size: 1.5em;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: $button-text-color;
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    mat-icon:hover {
+      color: $highlight-color;
+    }
   }
 
   mat-card-subtitle {
@@ -20,16 +37,25 @@
 
   mat-card-content {
     font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .activity-detail-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
   }
 
   .activity-detail {
-	display: flex;
-	align-items: center;
-	gap: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 
   .actions {
-	align-self: center;
-	gap: 10px;
+    align-self: center;
+    gap: 10px;
   }
 }

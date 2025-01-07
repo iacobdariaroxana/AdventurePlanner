@@ -28,4 +28,13 @@
       </app-activity-card>
     </div>
   </div>
+
+  <div class="activities-section suggested-activities-section">
+    <h2>Suggested Activities</h2>
+    <div class="suggested-activities-container">
+      <app-activity-filters
+        (filtersChanged)="onFiltersChanged($event)"
+      ></app-activity-filters>
+    </div>
+  </div>
 </div>

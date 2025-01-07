@@ -23,6 +23,10 @@ import { TripCardComponent } from './pages/home-page/trip-card/trip-card.compone
 import { AppFooterComponent } from './pages/app-footer/app-footer.component';
 import { TripDetailsComponent } from './pages/home-page/trip-details/trip-details.component';
 import { ActivityCardComponent } from './pages/home-page/activity-card/activity-card.component';
+import { ActivityFiltersComponent } from './pages/home-page/activity-filters/activity-filters.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 export function appConfigFactory(appConfigService: AppConfigService) {
   return () => appConfigService.loadConfig();
@@ -39,6 +43,7 @@ export function appConfigFactory(appConfigService: AppConfigService) {
     AppFooterComponent,
     TripDetailsComponent,
     ActivityCardComponent,
+    ActivityFiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,10 @@ export function appConfigFactory(appConfigService: AppConfigService) {
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatProgressBarModule
   ],
   providers: [
     AppConfigService,

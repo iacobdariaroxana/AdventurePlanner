@@ -3,6 +3,9 @@
 .trip-page-container {
   padding: 20px;
   color: $headline-color;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .trip-header {
@@ -87,4 +90,8 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.suggested-activities-section {
+ background-color: $paragraph-color;
 }

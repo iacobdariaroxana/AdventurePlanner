@@ -1,0 +1,38 @@
+<div class="filters-container">
+  <form class="filters-form">
+    <div class="filters-inputs">
+      <mat-form-field appearance="fill">
+        <mat-label>Activity Type</mat-label>
+        <mat-select [(ngModel)]="filters.activityType" name="activityType">
+          <mat-option *ngFor="let type of activityTypes" [value]="type">
+            {{ type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Min rating</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="filters.rating"
+          name="rating"
+          min="0"
+          max="5"
+        />
+      </mat-form-field>
+
+      <mat-checkbox
+        [(ngModel)]="filters.goodForChildren"
+        name="goodForChildren"
+      >
+        Good for Children
+      </mat-checkbox>
+    </div>
+    <div class="filters-apply-button">
+      <button mat-raised-button color="accent" type="submit" (click)="search()">
+        Search
+      </button>
+    </div>
+  </form>
+</div>

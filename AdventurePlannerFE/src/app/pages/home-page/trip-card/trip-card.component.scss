@@ -31,4 +31,9 @@
   .actions {
 	align-self: center;
   }
+  
+  .mat-mdc-icon-button:hover{
+    color: $highlight-color !important;
+    transform: scale(1.1);
+  }
 }

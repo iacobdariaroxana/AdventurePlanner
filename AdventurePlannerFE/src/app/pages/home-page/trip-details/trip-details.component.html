@@ -24,6 +24,7 @@
       <app-activity-card
         *ngFor="let activity of detailedTrip?.activities"
         [activity]="activity"
+        (activityDeleted)="handleActivityDelete($event)"
       >
       </app-activity-card>
     </div>

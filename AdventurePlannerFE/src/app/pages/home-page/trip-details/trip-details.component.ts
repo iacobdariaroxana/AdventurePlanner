@@ -7,6 +7,7 @@ import { Filters } from '../activity-filters/filters';
 import { SuggestedActivityViewModel } from '../../models/suggested-activity-view-model';
 import { EMPTY_GUID } from 'src/app/constants';
 import { TripInterval } from '../../models/trip-interval';
+import { ActivityService } from 'src/app/services/activity/activity.service';
 
 @Component({
   selector: 'app-trip-details',
@@ -21,6 +22,7 @@ export class TripDetailsComponent {
   constructor(
     private route: ActivatedRoute,
     private _tripService: TripService,
+    private _activityService: ActivityService,
     private _googleApiService: GoogleApiService
   ) {}
 
@@ -72,4 +74,19 @@ export class TripDetailsComponent {
       });
     }
   }
+
+  handleActivityDelete(activityId: string): void {
+    this._activityService.deleteActivity(activityId).subscribe({
+      next: () => {
+        this.detailedTrip.activities = this.detailedTrip.activities.filter(
+          (activity) => activity.id !== activityId
+        );
+      },
+      error: (err) => {
+        console.error('Failed to delete activity', err);
+        alert('Failed to delete activity');
+      },
+    });
+  }
+
 }

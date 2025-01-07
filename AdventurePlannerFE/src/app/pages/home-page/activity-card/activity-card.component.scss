@@ -39,4 +39,9 @@
     align-self: center;
     gap: 10px;
   }
+
+  .delete-button:hover mat-icon{
+    color: $highlight-color !important;
+    transform: scale(1.1);
+  }
 }

@@ -34,4 +34,15 @@ export class HomePageComponent implements OnInit {
       this.updateTrips();
     });
   }
+
+  handleTripDelete(tripId: string): void {
+    this._tripService.deleteTrip(tripId).subscribe({
+      next: () => {
+        this.trips = this.trips.filter((trip) => trip.id !== tripId);
+        console.log('Trip deleted successfully');
+      },
+      error: (err) => console.log('Failed to delete trip', err),
+    });
+  }
+
 }

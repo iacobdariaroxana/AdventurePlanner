@@ -125,7 +125,7 @@ namespace AdventurePlannerBE.Controllers
                     return NotFound();
                 }
 
-                return StatusCode(204, "Trip deleted successfully");
+               return NoContent();
             }
             catch (Exception ex)
             {

@@ -1,6 +1,6 @@
 <section id="home">
   <div class="trips-container">
-    <app-trip-card *ngFor="let trip of trips" [trip]="trip"> </app-trip-card>
+    <app-trip-card *ngFor="let trip of trips" [trip]="trip" (tripDeleted)="handleTripDelete($event)"></app-trip-card>
     <div class="container-button"> <button class="add-button" mat-fab color="accent" (click)="openNewTripPopUp()">
       <mat-icon>add</mat-icon>
     </button>

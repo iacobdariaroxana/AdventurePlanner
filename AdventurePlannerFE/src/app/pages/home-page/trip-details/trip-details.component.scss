@@ -47,7 +47,7 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.planned-activities-container {
+.activities-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
@@ -93,5 +93,7 @@
 }
 
 .suggested-activities-section {
- background-color: $paragraph-color;
+  background-color: $paragraph-color;
+  display: flex;
+  flex-direction: column;
 }

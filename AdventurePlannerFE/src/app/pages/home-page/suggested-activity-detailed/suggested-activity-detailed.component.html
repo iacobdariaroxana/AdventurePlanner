@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>{{ activity.name }}</h2>
+<mat-dialog-content>
+  <app-activity-common-card-content
+    [activity]="activity"
+  ></app-activity-common-card-content>
+
+  
+  <div class="photos-container">
+    <div class="photo-item" *ngFor="let photo of this.photosUri">
+      <img [src]="photo" alt="Activity Photo" />
+    </div>
+  </div>
+  
+  <div
+    *ngIf="activity.reviews && activity.reviews.length > 0"
+    class="reviews-section"
+  >
+    <h3 class="reviews-title">Reviews</h3>
+
+    <div *ngFor="let review of activity.reviews" class="review-card">
+      <div class="review-header">
+        <div class="review-rating">
+          <mat-icon>star</mat-icon> {{ review.rating }} / 5
+        </div>
+        <span class="review-time">{{ review.publishTimeAgo }}</span>
+      </div>
+      <div class="review-text">
+        <p>{{ review.text }}</p>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="closeDialog()">Cancel</button>
+</mat-dialog-actions>

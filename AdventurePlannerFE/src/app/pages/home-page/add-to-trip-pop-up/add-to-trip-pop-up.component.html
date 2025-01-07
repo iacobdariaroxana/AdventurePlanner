@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Trip Details</h2>
+<mat-dialog-content>
+  <div class="date-picker-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Select Activity Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="activity.date"
+        [min]="tripInterval.startDate"
+        [max]="tripInterval.endDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-hint>Activity date is optional!</mat-hint>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button mat-flat-button color="accent" (click)="saveActivity()">Save</button>
+</mat-dialog-actions>

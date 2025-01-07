@@ -1,0 +1,18 @@
+mat-card-content {
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.activity-detail-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.activity-detail {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

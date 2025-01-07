@@ -4,6 +4,9 @@ import { TripService } from 'src/app/services/trip/trip.service';
 import { GoogleApiService } from 'src/app/services/google-api/google-api.service';
 import { DetailedTripViewModel } from '../../models/detailed-trip-view-model';
 import { Filters } from '../activity-filters/filters';
+import { SuggestedActivityViewModel } from '../../models/suggested-activity-view-model';
+import { EMPTY_GUID } from 'src/app/constants';
+import { TripInterval } from '../../models/trip-interval';
 
 @Component({
   selector: 'app-trip-details',
@@ -11,7 +14,9 @@ import { Filters } from '../activity-filters/filters';
   styleUrls: ['./trip-details.component.scss'],
 })
 export class TripDetailsComponent {
-  detailedTrip: DetailedTripViewModel | undefined;
+  detailedTrip!: DetailedTripViewModel;
+  tripInterval: TripInterval = new TripInterval();
+  suggestedActivities: SuggestedActivityViewModel[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +29,9 @@ export class TripDetailsComponent {
       let tripId = params['id'];
       this._tripService.getById(tripId).subscribe({
         next: (value) => {
-          console.log(value);
           this.detailedTrip = value;
+          this.tripInterval.startDate = value.startDate;
+          this.tripInterval.endDate = value.endDate;
         },
         error: (err) => {
           console.log(err);
@@ -36,7 +42,6 @@ export class TripDetailsComponent {
 
   onFiltersChanged(filters: Filters) {
     let query = `${filters.activityType} in ${this.detailedTrip?.name}`;
-    console.log(query)
     this._googleApiService
       .getActivities({
         textQuery: query,
@@ -44,9 +49,27 @@ export class TripDetailsComponent {
       })
       .subscribe({
         next: (result) => {
-          console.log(result);
+          this.suggestedActivities = result.sort((a, b) => b.rating - a.rating);
+          this.suggestedActivities.forEach(
+            (activity) =>
+              (activity.tripId = this.detailedTrip
+                ? this.detailedTrip.id
+                : EMPTY_GUID)
+          );
         },
         error: (err) => console.log(err),
       });
+  }
+
+  refreshPlannedActivities(shouldRefresh: boolean) {
+    console.log(shouldRefresh);
+    if (shouldRefresh) {
+      this._tripService.getTripActivities(this.detailedTrip.id).subscribe({
+        next: (activities) => {
+          this.detailedTrip.activities = activities;
+        },
+        error: (err) => console.log(err),
+      });
+    }
   }
 }

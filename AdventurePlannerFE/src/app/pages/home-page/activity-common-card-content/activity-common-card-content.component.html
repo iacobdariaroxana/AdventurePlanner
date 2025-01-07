@@ -1,0 +1,30 @@
+<div class="activity-detail">
+  <mat-icon>location_on</mat-icon> {{ activity.location }}
+</div>
+<div class="activity-detail-container">
+  <div class="activity-detail">
+    <mat-icon>star</mat-icon> {{ activity.rating }}
+  </div>
+  <div class="activity-detail">
+    <mat-icon>sentiment_very_satisfied</mat-icon>
+    {{ activity.ratingCounts }}
+  </div>
+</div>
+<div class="activity-detail">
+  Good for children:
+  <mat-icon *ngIf="activity.goodForChildren">check</mat-icon>
+  <mat-icon *ngIf="!activity.goodForChildren">clear</mat-icon>
+</div>
+<div class="activity-detail">
+  <mat-icon>attach_money</mat-icon>
+  <mat-progress-bar
+    *ngIf="activity.priceLevel !== 0"
+    mode="determinate"
+    [value]="getProgressValue(activity.priceLevel)"
+  >
+  </mat-progress-bar>
+
+  <div class="price-level-text">
+    {{ getPriceLevelText(activity.priceLevel) }}
+  </div>
+</div>

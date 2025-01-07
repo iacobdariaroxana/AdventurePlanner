@@ -63,5 +63,12 @@ namespace AdventurePlannerBE.Services.Trip
 
             return new DetailedTripDTO().MapData(trip);
         }
+
+        public IEnumerable<ActivityDTO> GetAllActivities(Guid id)
+        {
+            var activities = Repository.Activities.FindByCondition(activity => activity.TripId == id).ToList();
+
+            return activities.Select(activity => new ActivityDTO().MapData(activity)); ;
+        }
     }
 }

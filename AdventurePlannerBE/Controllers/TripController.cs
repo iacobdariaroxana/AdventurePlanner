@@ -133,5 +133,30 @@ namespace AdventurePlannerBE.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+
+        /// <summary>
+        /// Returns the activities for a requested trip.
+        /// </summary>
+        /// <response code="200">Returns the activities</response>
+        /// <response code="404">Trip not found</response>
+        /// <response code="500">Internal server error</response>  
+        [HttpGet("{id}/activities")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<IEnumerable<ActivityDTO>> GetActivities(Guid id)
+        {
+            try
+            {
+                var activities = _tripService.GetAllActivities(id);
+
+                return Ok(activities);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
     }
 }

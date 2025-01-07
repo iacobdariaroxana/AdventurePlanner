@@ -1,10 +1,11 @@
 using AdventurePlannerBE.DB;
 using AdventurePlannerBE.ViewModels;
 using AdventurePlannerBE.Models;
+using AdventurePlannerBE.Enums;
 
 namespace AdventurePlannerBE.Services.Activity
 {
-    public class ActivityService: IActivityService
+    public class ActivityService : IActivityService
     {
         public IRepositoryWrapper Repository { get; }
 
@@ -18,10 +19,19 @@ namespace AdventurePlannerBE.Services.Activity
             var activity = new Models.Activity()
             {
                 Name = dto.Name,
-                Date = dto.Date,
                 Location = dto.Location,
                 TripId = dto.TripId,
+                Rating = dto.Rating,
+                RatingCounts = dto.RatingCounts,
+                WebsiteUri = dto.WebsiteUri,
+                GoodForChildren = dto.GoodForChildren,
+                PriceLevel = dto.PriceLevel,
             };
+
+            if (dto.Date != null)
+            {
+                activity.Date = (DateOnly)dto.Date;
+            }
 
             Repository.Activities.Create(activity);
             Repository.Save();

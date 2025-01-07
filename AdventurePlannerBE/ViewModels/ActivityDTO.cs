@@ -9,7 +9,7 @@ namespace AdventurePlannerBE.ViewModels
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
-        public DateOnly Date { get; set; }
+        public DateOnly? Date { get; set; }
         public Guid TripId { get; set; }
         public float Rating { get; set; }
         public int RatingCounts { get; set; }

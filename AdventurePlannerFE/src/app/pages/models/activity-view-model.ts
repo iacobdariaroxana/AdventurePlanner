@@ -5,7 +5,7 @@ export class ActivityViewModel {
   id = '';
   name = '';
   location = '';
-  date!: Date;
+  date: Date | null | undefined;
   tripId = '';
   rating = 0;
   ratingCounts = 0;
@@ -17,7 +17,9 @@ export class ActivityViewModel {
     this.id = dto.id;
     this.name = dto.name;
     this.location = dto.location;
-    this.date = new Date(dto.date);
+    if (dto.date) {
+      this.date = new Date(dto.date);
+    }
     this.tripId = dto.tripId;
     this.rating = dto.rating;
     this.ratingCounts = dto.ratingCounts;

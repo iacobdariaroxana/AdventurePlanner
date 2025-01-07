@@ -9,27 +9,4 @@ import { PriceLevel } from '../../models/enums/price-level';
 })
 export class ActivityCardComponent {
   @Input() activity!: ActivityViewModel;
-
-  getPriceLevelText(priceLevel: PriceLevel): string {
-    switch (priceLevel) {
-      case PriceLevel.PRICE_LEVEL_FREE:
-        return 'Free';
-      case PriceLevel.PRICE_LEVEL_INEXPENSIVE:
-        return 'Inexpensive';
-      case PriceLevel.PRICE_LEVEL_MODERATE:
-        return 'Moderate';
-      case PriceLevel.PRICE_LEVEL_EXPENSIVE:
-        return 'Expensive';
-      case PriceLevel.PRICE_LEVEL_VERY_EXPENSIVE:
-        return 'Very Expensive';
-      default:
-        return 'Unspecified';
-    }
-  }
-
-  getProgressValue(priceLevel: PriceLevel): number {
-    const minPriceLevel = 0;
-    const maxPriceLevel = 5;
-    return ((priceLevel - minPriceLevel) / (maxPriceLevel - minPriceLevel)) * 100;
-  }
 }

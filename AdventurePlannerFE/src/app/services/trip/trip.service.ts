@@ -7,6 +7,9 @@ import { TripModelAdapterService } from './trip-model-adapter.service';
 import { TripViewModel } from 'src/app/pages/models/trip-view-model';
 import { DetailedTripDto } from 'src/app/dtos/detailed-trip-dto';
 import { DetailedTripViewModel } from 'src/app/pages/models/detailed-trip-view-model';
+import { ActivityViewModel } from 'src/app/pages/models/activity-view-model';
+import { ActivityModelAdapterService } from '../activity/activity-model-adapter.service';
+import { ActivityDto } from 'src/app/dtos/activity-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +21,8 @@ export class TripService {
   constructor(
     private http: HttpClient,
     private appConfig: AppConfigService,
-    private adapter: TripModelAdapterService
+    private tripAdapter: TripModelAdapterService,
+    private activityAdapter: ActivityModelAdapterService
   ) {}
 
   ngOnDestroy(): void {
@@ -26,13 +30,27 @@ export class TripService {
   }
 
   getById(id: string): Observable<DetailedTripViewModel> {
-    const url = this.appConfig.Configuration?.apiUrl + this.serviceName + '/' + id;
+    const url =
+      this.appConfig.Configuration?.apiUrl + this.serviceName + '/' + id;
 
     return this.http.get<DetailedTripDto>(url).pipe(
       map((value) => {
-        return this.adapter.adaptDetailedViewModel(value);
+        return this.tripAdapter.adaptDetailedViewModel(value);
       })
     );
+  }
+
+  getTripActivities(id: string): Observable<ActivityViewModel[]> {
+    const url =
+      this.appConfig.Configuration?.apiUrl + this.serviceName + '/' + id;
+
+    return this.http
+      .get<ActivityDto[]>(url)
+      .pipe(
+        map((data: any[]) =>
+          data.map((item) => this.activityAdapter.adaptViewModel(item))
+        )
+      );
   }
 
   getTrips(): Observable<TripViewModel[]> {
@@ -42,7 +60,7 @@ export class TripService {
       .get<TripDto[]>(url)
       .pipe(
         map((data: any[]) =>
-          data.map((item) => this.adapter.adaptViewModel(item))
+          data.map((item) => this.tripAdapter.adaptViewModel(item))
         )
       );
   }

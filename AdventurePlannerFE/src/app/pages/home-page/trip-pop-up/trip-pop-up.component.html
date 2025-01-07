@@ -1,10 +1,6 @@
 <h2 mat-dialog-title>Trip Details</h2>
 <mat-dialog-content>
-  <form
-    [formGroup]="newTripForm"
-    (ngSubmit)="onSubmit()"
-    class="form-container"
-  >
+  <form [formGroup]="newTripForm" class="form-container">
     <mat-form-field class="input">
       <mat-label>Name</mat-label>
       <input

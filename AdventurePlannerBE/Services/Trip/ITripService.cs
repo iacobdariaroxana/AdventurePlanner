@@ -11,5 +11,6 @@ namespace AdventurePlannerBE.Services.Trip
         IEnumerable<TripDTO> GetAll();
         TripDTO Create(TripDTO dto);
         TripDTO? Delete(Guid id);
+        IEnumerable<ActivityDTO> GetAllActivities(Guid id);
     }
 }

@@ -33,7 +33,6 @@ export class TripPopUpComponent {
     if (this.newTripForm.valid) {
       const trip = this.newTripForm.value as unknown as TripViewModel;
       this.tripDto.updateBasedOnModel(trip);
-      console.log(trip);
       this.tripService.insertTrip(this.tripDto).subscribe({
         next: (value) => {
           console.log('Trip saved successfully:', value);

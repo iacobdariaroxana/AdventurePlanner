@@ -27,6 +27,10 @@ import { ActivityFiltersComponent } from './pages/home-page/activity-filters/act
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { SuggestedActivityCardComponent } from './pages/home-page/suggested-activity-card/suggested-activity-card.component';
+import { ActivityCommonCardContentComponent } from './pages/home-page/activity-common-card-content/activity-common-card-content.component';
+import { SuggestedActivityDetailedComponent } from './pages/home-page/suggested-activity-detailed/suggested-activity-detailed.component';
+import { AddToTripPopUpComponent } from './pages/home-page/add-to-trip-pop-up/add-to-trip-pop-up.component';
 
 export function appConfigFactory(appConfigService: AppConfigService) {
   return () => appConfigService.loadConfig();
@@ -44,6 +48,10 @@ export function appConfigFactory(appConfigService: AppConfigService) {
     TripDetailsComponent,
     ActivityCardComponent,
     ActivityFiltersComponent,
+    SuggestedActivityCardComponent,
+    ActivityCommonCardContentComponent,
+    SuggestedActivityDetailedComponent,
+    AddToTripPopUpComponent,
   ],
   imports: [
     BrowserModule,

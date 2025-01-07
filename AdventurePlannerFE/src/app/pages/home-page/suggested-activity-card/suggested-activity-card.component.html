@@ -23,7 +23,9 @@
   </mat-card-content>
 
   <mat-card-actions class="actions">
-    <button mat-flat-button color="accent">Edit</button>
-    <button mat-flat-button color="accent">Delete</button>
+    <button mat-flat-button color="accent" (click)="openDetailedCard()">
+      View details
+    </button>
+    <button mat-flat-button color="accent" (click)="openAddToTripPopUp()">Add to trip</button>
   </mat-card-actions>
 </mat-card>

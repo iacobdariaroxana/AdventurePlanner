@@ -14,7 +14,7 @@ import { AddToTripPopUpComponent } from '../add-to-trip-pop-up/add-to-trip-pop-u
 export class SuggestedActivityCardComponent {
   @Input() activity!: SuggestedActivityViewModel;
   @Input() tripInterval!: TripInterval;
-  @Output() onActivityAdded = new EventEmitter<any>();
+  @Output() onActivityChanged = new EventEmitter<any>();
 
   constructor(public dialog: MatDialog) {}
 
@@ -30,7 +30,7 @@ export class SuggestedActivityCardComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.onActivityAdded.emit(result);
+      this.onActivityChanged.emit(result);
     });
   }
 }

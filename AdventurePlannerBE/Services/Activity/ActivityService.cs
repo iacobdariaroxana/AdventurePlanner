@@ -40,6 +40,23 @@ namespace AdventurePlannerBE.Services.Activity
             return dto;
         }
 
+        public ActivityDTO Update(Guid id, ActivityDTO dto)
+        {
+            var activity = Repository.Activities.FindByCondition(activity => activity.Id == id).FirstOrDefault();
+
+            if (activity == null)
+            {
+                return null;
+            }
+
+            if (dto.Date != null)
+            {
+                activity.Date = (DateOnly)dto.Date;
+            }
+
+            return new ActivityDTO().MapData(activity);
+        }
+
         public ActivityDTO? Delete(Guid id)
         {
             var activity = Repository.Activities.FindByCondition(activity => activity.Id == id).FirstOrDefault();

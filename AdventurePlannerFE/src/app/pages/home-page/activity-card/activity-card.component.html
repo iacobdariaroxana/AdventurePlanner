@@ -23,8 +23,15 @@
   </mat-card-content>
 
   <mat-card-actions class="actions">
-    <button mat-flat-button color="accent">Edit</button>
-    <button mat-icon-button  class="delete-button" color="warn" (click)="deleteActivity()">
+    <button mat-flat-button color="accent" (click)="editActivity()">
+      Edit
+    </button>
+    <button
+      mat-icon-button
+      class="delete-button"
+      color="warn"
+      (click)="deleteActivity()"
+    >
       <mat-icon class="button-icon">delete</mat-icon>
     </button>
   </mat-card-actions>

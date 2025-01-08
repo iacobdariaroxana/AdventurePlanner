@@ -51,6 +51,37 @@ namespace AdventurePlannerBE.Controllers
         }
 
         /// <summary>
+        /// Modifies an activity
+        /// </summary>
+        /// <response code="202">Activity modified</response>
+        /// <response code="409">Conflict; data not found in the database</response>
+        /// <response code="400">bad request;check DTOs</response>
+        /// <response code="500">Oops!Internal server error</response>
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult Update(Guid id, [FromBody] ActivityDTO dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var updatedActivity = _activityService.Update(id, dto);
+                return Accepted("/Activities/" + updatedActivity.Id.ToString(), updatedActivity);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        /// <summary>
         /// Deletes  the Activity
         /// </summary>
         /// <remarks>Please include the id of the activity</remarks>

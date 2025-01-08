@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Trip Details</h2>
+<h2 mat-dialog-title>Activity Details</h2>
 <mat-dialog-content>
   <div class="date-picker-container">
     <mat-form-field appearance="fill">
@@ -6,7 +6,7 @@
       <input
         matInput
         [matDatepicker]="picker"
-        [(ngModel)]="activity.date"
+        [(ngModel)]="activityDate"
         [min]="tripInterval.startDate"
         [max]="tripInterval.endDate"
       />
@@ -19,5 +19,20 @@
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="closeDialog()">Cancel</button>
-  <button mat-flat-button color="accent" (click)="saveActivity()">Save</button>
+  <button
+    *ngIf="this.activity.isNew"
+    mat-flat-button
+    color="accent"
+    (click)="saveActivity()"
+  >
+    Save
+  </button>
+  <button
+    *ngIf="!this.activity.isNew"
+    mat-flat-button
+    color="accent"
+    (click)="updateActivity()"
+  >
+    Update
+  </button>
 </mat-dialog-actions>

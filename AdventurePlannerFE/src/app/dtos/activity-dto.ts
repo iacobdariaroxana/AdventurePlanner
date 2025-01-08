@@ -16,8 +16,10 @@ export class ActivityDto {
 
   updateBasedOnModel(model: SuggestedActivityViewModel): ActivityDto {
     let result = new ActivityDto();
-    if (this.id == '') {
+    if (model.id == '') {
       this.id = EMPTY_GUID;
+    } else {
+      this.id = model.id;
     }
 
     this.name = model.name;

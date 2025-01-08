@@ -8,6 +8,7 @@ namespace AdventurePlannerBE.Services.Activity
         IRepositoryWrapper Repository { get; }
 
         ActivityDTO Create(ActivityDTO dto);
+        ActivityDTO Update(Guid id, ActivityDTO dto);
         ActivityDTO? Delete(Guid id);
     }
 }

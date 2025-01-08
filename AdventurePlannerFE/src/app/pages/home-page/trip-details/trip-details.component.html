@@ -24,7 +24,9 @@
       <app-activity-card
         *ngFor="let activity of detailedTrip?.activities"
         [activity]="activity"
-        (activityDeleted)="handleActivityDelete($event)"
+        [tripInterval]="tripInterval"
+        (onActivityChanged)="refreshPlannedActivities($event)"
+        (onActivityDeleted)="handleActivityDelete($event)"
       >
       </app-activity-card>
     </div>
@@ -41,7 +43,7 @@
           *ngFor="let activity of suggestedActivities"
           [activity]="activity"
           [tripInterval]="tripInterval"
-          (onActivityAdded)="refreshPlannedActivities($event)"
+          (onActivityChanged)="refreshPlannedActivities($event)"
         >
         </app-suggested-activity-card>
       </div>

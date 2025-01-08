@@ -15,6 +15,7 @@ import { SuggestedActivityDetailedComponent } from '../suggested-activity-detail
 export class AddToTripPopUpComponent {
   activity!: SuggestedActivityViewModel;
   tripInterval!: TripInterval;
+  activityDate: Date | null | undefined;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,6 +24,9 @@ export class AddToTripPopUpComponent {
   ) {
     if (data) {
       this.activity = data.activity;
+      if (data.activity.date) {
+        this.activityDate = data.activity.date;
+      }
       this.tripInterval = data.tripInterval;
     }
   }
@@ -32,6 +36,8 @@ export class AddToTripPopUpComponent {
   }
 
   saveActivity() {
+    this.activity.date = this.activityDate;
+
     let activityDto = new ActivityDto();
     activityDto.updateBasedOnModel(this.activity);
 
@@ -42,5 +48,22 @@ export class AddToTripPopUpComponent {
       },
       error: (err) => console.error(err),
     });
+  }
+
+  updateActivity() {
+    this.activity.date = this.activityDate;
+
+    let activityDto = new ActivityDto();
+    activityDto.updateBasedOnModel(this.activity);
+
+    this.activityService
+      .updateActivity(this.activity.id, activityDto)
+      .subscribe({
+        next: (value) => {
+          console.log('Activity updated successfully:', value);
+          this.dialogRef.close(true);
+        },
+        error: (err) => console.error(err),
+      });
   }
 }

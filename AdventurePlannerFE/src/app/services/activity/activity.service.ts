@@ -22,6 +22,11 @@ export class ActivityService {
     return this.http.post<ActivityDto>(url, dto);
   }
 
+  updateActivity(id: string, dto: ActivityDto): Observable<ActivityDto> {
+    const url = this.appConfig.Configuration?.apiUrl + this.serviceName + '/' + id;;
+    return this.http.put<ActivityDto>(url, dto);
+  }
+
   deleteActivity(activityId: string): Observable<any> {
     const url = this.appConfig.Configuration?.apiUrl + this.serviceName;
     return this.http.delete(url + '/' + activityId);

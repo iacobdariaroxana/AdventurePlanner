@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TripCardComponent {
   @Input() trip!: TripViewModel;
-  @Output() tripDeleted = new EventEmitter<string>(); 
+  @Output() tripDeleted = new EventEmitter<string>();
 
   constructor(private router: Router) {}
 
@@ -19,8 +19,7 @@ export class TripCardComponent {
 
   deleteTrip(): void {
     if (confirm('Are you sure you want to delete this trip?')) {
-      this.tripDeleted.emit(this.trip.id); 
+      this.tripDeleted.emit(this.trip.id);
     }
   }
-
 }

@@ -18,7 +18,7 @@ namespace AdventurePlannerBE.Models
         [StringLength(100, MinimumLength = 3)]
         public required string Location { get; set; }
 
-        public DateOnly Date { get; set; }
+        public DateOnly? Date { get; set; }
 
         [ForeignKey("Trips")]
         public Guid TripId { get; set; }

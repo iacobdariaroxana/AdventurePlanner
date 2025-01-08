@@ -42,7 +42,7 @@ export class TripService {
 
   getTripActivities(id: string): Observable<ActivityViewModel[]> {
     const url =
-      this.appConfig.Configuration?.apiUrl + this.serviceName + '/' + id;
+      this.appConfig.Configuration?.apiUrl + this.serviceName + '/' + id + '/activities';
 
     return this.http
       .get<ActivityDto[]>(url)

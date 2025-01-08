@@ -40,22 +40,28 @@ export class GoogleApiService {
             } else {
               result.priceLevel = PriceLevel.PRICE_LEVEL_UNSPECIFIED;
             }
-            result.reviews = item.reviews.map(
-              (review: {
-                text: { text: string };
-                rating: string;
-                relativePublishTimeDescription: string;
-              }) => {
-                return {
-                  text: review.text?.text,
-                  rating: review.rating,
-                  publishTimeAgo: review.relativePublishTimeDescription,
-                };
-              }
-            );
-            result.photosReferences = item.photos
-              .slice(0, 4)
-              .map((item: { name: any }) => item.name);
+
+            if (item.reviews) {
+              result.reviews = item.reviews.map(
+                (review: {
+                  text: { text: string };
+                  rating: string;
+                  relativePublishTimeDescription: string;
+                }) => {
+                  return {
+                    text: review.text?.text,
+                    rating: review.rating,
+                    publishTimeAgo: review.relativePublishTimeDescription,
+                  };
+                }
+              );
+            }
+
+            if (item.photos) {
+              result.photosReferences = item.photos
+                .slice(0, 4)
+                .map((item: { name: any }) => item.name);
+            }
             return result;
           })
         )

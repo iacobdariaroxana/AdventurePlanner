@@ -19,7 +19,7 @@ export class SuggestedActivityCardComponent {
   constructor(public dialog: MatDialog) {}
 
   openDetailedCard() {
-    const dialogRef = this.dialog.open(SuggestedActivityDetailedComponent, {
+    this.dialog.open(SuggestedActivityDetailedComponent, {
       data: this.activity,
     });
   }

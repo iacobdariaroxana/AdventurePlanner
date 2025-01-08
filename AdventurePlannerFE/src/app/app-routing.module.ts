@@ -6,6 +6,11 @@ import { TripDetailsComponent } from './pages/home-page/trip-details/trip-detail
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
+  {
     path: 'home',
     component: HomePageComponent,
   },
@@ -15,8 +20,8 @@ const routes: Routes = [
   },
   {
     path: 'home/trip/:id',
-    component: TripDetailsComponent
-  }
+    component: TripDetailsComponent,
+  },
 ];
 
 @NgModule({

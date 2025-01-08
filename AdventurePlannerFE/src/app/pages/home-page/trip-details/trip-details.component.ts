@@ -51,7 +51,9 @@ export class TripDetailsComponent {
       })
       .subscribe({
         next: (result) => {
-          this.suggestedActivities = result.sort((a, b) => b.rating - a.rating);
+          this.suggestedActivities = result;
+          this.filterSuggestedActivities();
+
           this.suggestedActivities.forEach(
             (activity) =>
               (activity.tripId = this.detailedTrip
@@ -64,11 +66,11 @@ export class TripDetailsComponent {
   }
 
   refreshPlannedActivities(shouldRefresh: boolean) {
-    console.log(shouldRefresh);
     if (shouldRefresh) {
       this._tripService.getTripActivities(this.detailedTrip.id).subscribe({
         next: (activities) => {
           this.detailedTrip.activities = activities;
+          this.filterSuggestedActivities();
         },
         error: (err) => console.log(err),
       });
@@ -89,4 +91,13 @@ export class TripDetailsComponent {
     });
   }
 
+  filterSuggestedActivities() {
+    const plannedActivityNames = this.detailedTrip.activities.map(
+      (activity) => activity.name
+    );
+
+    this.suggestedActivities = this.suggestedActivities
+      .filter((activity) => !plannedActivityNames.includes(activity.name))
+      .sort((a, b) => b.rating - a.rating);
+  }
 }

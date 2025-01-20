@@ -12,6 +12,14 @@
   color: $button-text-color;
 }
 
+.upper-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
 .photos-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -67,7 +75,7 @@
 
 .review-rating {
   font-size: 1.2rem;
-  color: #f39c12; /* Gold color for stars */
+  color: #f39c12;
 }
 
 .review-rating mat-icon {
@@ -87,8 +95,73 @@
   line-height: 1.6;
 }
 
-/* Hover effect for review card */
 .review-card:hover {
   background-color: #f1f1f1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.day-time {
+  font-weight: 400;
+  color: #555;
+  display: inline-block;
+}
+
+.opening-hours-container {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 215px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.activity-container {
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 215px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.opening-hours-container:hover, .activity-container:hover {
+  transform: translateY(-4px);
+}
+
+.opening-hours-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.opening-hour-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.opening-hour-item:last-child {
+  border-bottom: none;
+}
+
+.day {
+  font-weight: 500;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.hours {
+  font-weight: 400;
+  color: #d9534f; /* un roșu cald pentru a atrage atenția */
+}
+
+.opening-hour-item:hover .day {
+  color: #d9534f; /* schimbă culoarea zilei când treci cu mouse-ul */
+}
+
+.opening-hour-item:hover .hours {
+  color: #5bc0de; /* un accent mai rece pe ore */
 }

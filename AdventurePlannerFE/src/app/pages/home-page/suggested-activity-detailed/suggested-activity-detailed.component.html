@@ -1,16 +1,29 @@
 <h2 mat-dialog-title>{{ activity.name }}</h2>
 <mat-dialog-content>
-  <app-activity-common-card-content
-    [activity]="activity"
-  ></app-activity-common-card-content>
+  <div class="upper-container">
+    <div class="activity-container">
+      <app-activity-common-card-content
+        [activity]="activity"
+      ></app-activity-common-card-content>
+    </div>
 
-  
+    <div
+      class="opening-hours-container"
+      *ngIf="activity.openingHours"
+    >
+      <div *ngFor="let hour of activity.openingHours" class="opening-hour-item">
+        <span class="day-time">{{ hour.split(": ")[0] }}</span>
+        <span class="time">{{ hour.split(": ")[1] }}</span>
+      </div>
+    </div>
+  </div>
+
   <div class="photos-container">
     <div class="photo-item" *ngFor="let photo of this.photosUri">
       <img [src]="photo" alt="Activity Photo" />
     </div>
   </div>
-  
+
   <div
     *ngIf="activity.reviews && activity.reviews.length > 0"
     class="reviews-section"

@@ -14,7 +14,7 @@ export class GoogleApiService {
     'Content-Type': 'application/json',
     'X-Goog-Api-Key': this.apiKey,
     'X-Goog-FieldMask':
-      'places.rating,places.websiteUri,places.priceLevel,places.userRatingCount,places.displayName,places.primaryType,places.shortFormattedAddress,places.reviews,places.photos,places.goodForChildren',
+      'places.rating,places.websiteUri,places.priceLevel,places.userRatingCount,places.displayName,places.primaryType,places.shortFormattedAddress,places.reviews,places.photos,places.goodForChildren,places.regularOpeningHours',
   });
 
   constructor(private appConfig: AppConfigService, private http: HttpClient) {}
@@ -62,6 +62,9 @@ export class GoogleApiService {
                 .slice(0, 4)
                 .map((item: { name: any }) => item.name);
             }
+
+            result.openingHours = item.regularOpeningHours?.weekdayDescriptions;
+
             return result;
           })
         )

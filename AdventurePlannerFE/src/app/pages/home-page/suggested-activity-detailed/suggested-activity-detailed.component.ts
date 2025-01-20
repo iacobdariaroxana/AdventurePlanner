@@ -35,6 +35,4 @@ export class SuggestedActivityDetailedComponent {
   closeDialog() {
     this.dialogRef.close();
   }
-
-  
 }

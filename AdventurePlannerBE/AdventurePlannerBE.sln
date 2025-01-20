@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventurePlannerBE", "AdventurePlannerBE.csproj", "{89A819D6-1034-4064-83F3-E1C07F3650EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventurePlannerBE", "AdventurePlannerBE.csproj", "{89A819D6-1034-4064-83F3-E1C07F3650EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventurePlannerUnitTests", "..\AdventurePlannerUnitTests\AdventurePlannerUnitTests.csproj", "{6BB0F093-185D-410C-A9F8-A4908C793439}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{89A819D6-1034-4064-83F3-E1C07F3650EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89A819D6-1034-4064-83F3-E1C07F3650EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89A819D6-1034-4064-83F3-E1C07F3650EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB0F093-185D-410C-A9F8-A4908C793439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB0F093-185D-410C-A9F8-A4908C793439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB0F093-185D-410C-A9F8-A4908C793439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB0F093-185D-410C-A9F8-A4908C793439}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

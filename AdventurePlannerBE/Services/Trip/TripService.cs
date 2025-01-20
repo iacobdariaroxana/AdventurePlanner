@@ -2,6 +2,7 @@
 using AdventurePlannerBE.ViewModels;
 using AdventurePlannerBE.Models;
 using Microsoft.EntityFrameworkCore;
+using AdventurePlannerBE.Enums;
 
 namespace AdventurePlannerBE.Services.Trip
 {

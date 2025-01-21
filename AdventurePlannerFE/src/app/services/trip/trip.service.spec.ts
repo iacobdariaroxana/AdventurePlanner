@@ -26,7 +26,7 @@ describe('TripService', () => {
     httpMock.verify();
   });
 
-  it('should fetch list of trips and map them using updateBasedOnDto', () => {
+  it('should fetch list of trips', () => {
     const mockTripDtos: TripDto[] = [
       Object.assign(new TripDto(), {
         id: '1',

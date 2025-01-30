@@ -1,4 +1,8 @@
 # AdventurePlanner
+Our trip planner helps you create personalized travel itineraries by suggesting activities based on your preferences using the Google Places API. Simply select the type of activity you’re interested in—whether it’s sightseeing, museums, outdoor adventures, or cultural experiences—and our system will generate tailored recommendations.
+
+Each activity includes key details such as opening hours, user reviews, and images, ensuring you have all the information you need to plan your trip seamlessly. You can easily add your favorite activities to your travel itinerary, creating a well-organized and customized journey.
+
 - Home page
 ![image](https://github.com/user-attachments/assets/2236a699-f3da-45c8-9897-7cced9536cb1)
 
